@@ -2,6 +2,7 @@ var React =require('react');
 var AreaChart =  require('react-d3/areachart').AreaChart;
 var LineChart =  require('react-d3/linechart').LineChart;
 var Picker = require('./components/picker');
+var SelectedCurrencies = require('./components/selected-currencies');
 var CurrencyComparison = require('./components/currency-comparison');
 var request = require('superagent');
 
@@ -32,8 +33,14 @@ var App = React.createClass({
           });
     },
     render: function() {
+        let currenciesLabels = this.state.data.map(item => { 
+            console.log(item);
+            return {label: item.name};
+        });
+        console.log(currenciesLabels);
         return (<div>
             <Picker ref='picker' />
+            <SelectedCurrencies currencies={currenciesLabels} />
             <button onClick={this._handleClick}>Get</button>
             <CurrencyComparison data={this.state.data} />
             
