@@ -91,13 +91,17 @@
 	        return React.createElement(
 	            'div',
 	            null,
-	            React.createElement(Picker, { ref: 'picker' }),
-	            React.createElement(SelectedCurrencies, { currencies: currenciesLabels }),
 	            React.createElement(
-	                'button',
-	                { onClick: this._handleClick },
-	                'Get'
+	                'article',
+	                null,
+	                React.createElement(Picker, { ref: 'picker' }),
+	                React.createElement(
+	                    'button',
+	                    { onClick: this._handleClick },
+	                    'Get'
+	                )
 	            ),
+	            React.createElement(SelectedCurrencies, { currencies: currenciesLabels }),
 	            React.createElement(CurrencyComparison, { data: this.state.data })
 	        );
 	    }
@@ -20843,7 +20847,7 @@
 	        value: function render() {
 	
 	            return _react2['default'].createElement(
-	                'article',
+	                'div',
 	                { className: 'picker' },
 	                _react2['default'].createElement(_reactFormElements.TextBox, { ref: 'amount', label: 'Amount' }),
 	                _react2['default'].createElement(
