@@ -20843,7 +20843,7 @@
 	        value: function render() {
 	
 	            return _react2['default'].createElement(
-	                'div',
+	                'article',
 	                { className: 'picker' },
 	                _react2['default'].createElement(_reactFormElements.TextBox, { ref: 'amount', label: 'Amount' }),
 	                _react2['default'].createElement(
@@ -20868,6 +20868,11 @@
 	                        'option',
 	                        { value: 'GBP' },
 	                        'UK Pound'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'option',
+	                        { value: 'EUR' },
+	                        'Euro'
 	                    )
 	                ),
 	                _react2['default'].createElement(
@@ -20892,6 +20897,11 @@
 	                        'option',
 	                        { value: 'GBP' },
 	                        'UK Pound'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'option',
+	                        { value: 'EUR' },
+	                        'Euro'
 	                    )
 	                )
 	            );
@@ -21504,9 +21514,13 @@
 	                );
 	            });
 	            return _react2['default'].createElement(
-	                'ul',
-	                { className: 'SelectedCurrencies' },
-	                xchange
+	                'aside',
+	                null,
+	                _react2['default'].createElement(
+	                    'ul',
+	                    { className: 'SelectedCurrencies' },
+	                    xchange
+	                )
 	            );
 	        }
 	    }]);
