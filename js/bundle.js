@@ -51,10 +51,13 @@
 	var LineChart = __webpack_require__(177).LineChart;
 	var Picker = __webpack_require__(190);
 	var SelectedCurrencies = __webpack_require__(197);
-	var CurrencyComparison = __webpack_require__(198);
+	var CurrencyComparison = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/currency-comparison\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	var request = __webpack_require__(199);
 	
 	var chartOptions = {};
+	
+	var colors = ['#595752', '#727272', '#85B8C5', '#D5B986', '#A18862'];
+	var i = 0;
 	var App = React.createClass({
 	    displayName: 'App',
 	
@@ -71,6 +74,7 @@
 	        request.get('http://x-change.azurewebsites.net/rates/year/2015?from=' + from + '&to=' + to).end(function (err, res) {
 	            console.log(res.body);
 	            var data = {
+	                axesColor: colors[i],
 	                name: from + ' to ' + to,
 	                values: res.body.map(function (entry) {
 	                    return [entry.date, entry.result];
@@ -80,6 +84,7 @@
 	            var currentData = self.state.data;
 	            currentData.push(data);
 	            self.setState({ data: currentData });
+	            i++;
 	        });
 	    },
 	    render: function render() {
@@ -21544,79 +21549,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 198 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var LineChart = __webpack_require__(177).LineChart;
-	
-	var CurrencyComparison = (function (_Component) {
-	    function CurrencyComparison(props) {
-	        _classCallCheck(this, CurrencyComparison);
-	
-	        _get(Object.getPrototypeOf(CurrencyComparison.prototype), 'constructor', this).call(this, props);
-	    }
-	
-	    _inherits(CurrencyComparison, _Component);
-	
-	    _createClass(CurrencyComparison, [{
-	        key: 'render',
-	        value: function render() {
-	            console.log(this.props.data);
-	            if (this.props.data.length === undefined) {
-	                return _react2['default'].createElement(
-	                    'div',
-	                    null,
-	                    ' No Data'
-	                );
-	            }
-	            return _react2['default'].createElement(LineChart, {
-	                legend: true,
-	                data: this.props.data,
-	                width: 750,
-	                height: 300,
-	                xAxisTickInterval: { unit: 'month', interval: 1 },
-	                title: 'Exchange Rate',
-	                xAccessor: function (d) {
-	                    console.log('xaxx', d);
-	                    var arrD = d[0].split('-');
-	                    var nd = new Date(arrD[0], Number(arrD[1]) - 1, arrD[2]);
-	                    return nd;
-	                },
-	                yAccessor: function (d) {
-	                    console.log('yacc data', d);
-	                    return Number(d[1]);
-	                }
-	            });
-	        }
-	    }]);
-	
-	    return CurrencyComparison;
-	})(_react.Component);
-	
-	exports['default'] = CurrencyComparison;
-	module.exports = exports['default'];
-
-/***/ },
+/* 198 */,
 /* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
