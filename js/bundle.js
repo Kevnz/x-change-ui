@@ -20845,12 +20845,13 @@
 	    _createClass(Picker, [{
 	        key: 'isDisabled',
 	        value: function isDisabled(val, con) {
-	            return val === con();
+	            return val === con;
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	
+	            var to = this.to();
+	            var from = this.from();
 	            return _react2['default'].createElement(
 	                'div',
 	                { className: 'picker' },
@@ -20859,27 +20860,27 @@
 	                    { ref: 'from', label: 'From Currency' },
 	                    _react2['default'].createElement(
 	                        'option',
-	                        { value: 'NZD', disabled: this.isDisabled('NZD', this.to) },
+	                        { value: 'NZD', disabled: this.isDisabled('NZD', to) },
 	                        'New Zealand'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'option',
-	                        { value: 'USD', disabled: this.isDisabled('USD', this.to) },
+	                        { value: 'USD', disabled: this.isDisabled('USD', to) },
 	                        'America'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'option',
-	                        { value: 'AUD', disabled: this.isDisabled('AUD', this.to) },
+	                        { value: 'AUD', disabled: this.isDisabled('AUD', to) },
 	                        'Australia'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'option',
-	                        { value: 'GBP', disabled: this.isDisabled('GBP', this.to) },
+	                        { value: 'GBP', disabled: this.isDisabled('GBP', to) },
 	                        'UK Pound'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'option',
-	                        { value: 'EUR', disabled: this.isDisabled('EUR', this.to) },
+	                        { value: 'EUR', disabled: this.isDisabled('EUR', to) },
 	                        'Euro'
 	                    )
 	                ),
