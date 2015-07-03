@@ -20850,8 +20850,8 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var to = this.to();
-	            var from = this.from();
+	            var to = this.to;
+	            var from = this.from;
 	            return _react2['default'].createElement(
 	                'div',
 	                { className: 'picker' },
