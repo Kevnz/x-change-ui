@@ -20843,39 +20843,43 @@
 	    _inherits(Picker, _Component);
 	
 	    _createClass(Picker, [{
+	        key: 'isDisabled',
+	        value: function isDisabled(val, con) {
+	            return val === con();
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	
 	            return _react2['default'].createElement(
 	                'div',
 	                { className: 'picker' },
-	                _react2['default'].createElement(_reactFormElements.TextBox, { ref: 'amount', label: 'Amount' }),
 	                _react2['default'].createElement(
 	                    _reactFormElements.DropDown,
 	                    { ref: 'from', label: 'From Currency' },
 	                    _react2['default'].createElement(
 	                        'option',
-	                        { value: 'NZD' },
+	                        { value: 'NZD', disabled: this.isDisabled('NZD', this.to) },
 	                        'New Zealand'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'option',
-	                        { value: 'USD' },
+	                        { value: 'USD', disabled: this.isDisabled('USD', this.to) },
 	                        'America'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'option',
-	                        { value: 'AUD' },
+	                        { value: 'AUD', disabled: this.isDisabled('AUD', this.to) },
 	                        'Australia'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'option',
-	                        { value: 'GBP' },
+	                        { value: 'GBP', disabled: this.isDisabled('GBP', this.to) },
 	                        'UK Pound'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'option',
-	                        { value: 'EUR' },
+	                        { value: 'EUR', disabled: this.isDisabled('EUR', this.to) },
 	                        'Euro'
 	                    )
 	                ),
