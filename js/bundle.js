@@ -20918,12 +20918,12 @@
 	    }, {
 	        key: 'to',
 	        get: function get() {
-	            return this.refs.to.getValue();
+	            return this.refs.to ? this.refs.to.getValue() : 'USD';
 	        }
 	    }, {
 	        key: 'from',
 	        get: function get() {
-	            return this.refs.from.getValue();
+	            return this.refs.from ? this.refs.from.getValue() : 'NZD';
 	        }
 	    }]);
 	
