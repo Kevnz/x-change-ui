@@ -81,7 +81,7 @@
 	                })
 	            };
 	            console.log(data);
-	            var currentData = self.state.data;
+	            var currentData = self.state.data.slice(0);
 	            currentData.push(data);
 	            self.setState({ data: currentData });
 	            i++;
