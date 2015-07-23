@@ -8,6 +8,10 @@ var request = require('superagent');
 
 
 var chartOptions = {};
+
+var colors = ['#595752', '#727272', '#85B8C5', '#D5B986', '#A18862'];
+var i = 0;
+var chartData = [];
 var App = React.createClass({
     getInitialState: function() {
         return {
@@ -23,13 +27,16 @@ var App = React.createClass({
             .end(function (err, res){ 
                 console.log(res.body);
                 var data = {
+                    axesColor: colors[i],
                     name: `${from} to ${to}`,
                     values: res.body.map((entry) => {return [entry.date, entry.result];})
                 };
                 console.log(data);
-                let currentData = self.state.data;
+                let currentData = self.state.data.slice(0);
                 currentData.push(data);
+                
                 self.setState({data: currentData});
+                i++;
           });
     },
     render: function() {
@@ -39,9 +46,12 @@ var App = React.createClass({
         });
         console.log(currenciesLabels);
         return (<div>
-            <Picker ref='picker' />
+            <article>
+                <Picker ref='picker' />
+            
+                <button onClick={this._handleClick}>Get</button>
+            </article>
             <SelectedCurrencies currencies={currenciesLabels} />
-            <button onClick={this._handleClick}>Get</button>
             <CurrencyComparison data={this.state.data} />
             
     </div>

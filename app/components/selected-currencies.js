@@ -13,9 +13,11 @@ export default class SelectedCurrencies extends Component {
             return <li>{item.label}</li>
         })
         return (
-            <ul className="SelectedCurrencies">
-                {xchange}
-            </ul>
+            <aside>
+                <ul className="SelectedCurrencies">
+                    {xchange}
+                </ul>
+            </aside>
             );
     }
 }
