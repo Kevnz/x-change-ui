@@ -3,3 +3,4 @@ node_modules
 divshot.json
 bundle.js
 bundle.map
+.publish/
